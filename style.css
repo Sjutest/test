@@ -1,15 +1,23 @@
-body {
-    font-family: Arial, sans-serif;
+/* Resetare stiluri */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif; /* Font elegant */
+    background-color: #f8f9fa; /* Culoare de fundal deschisă */
+    color: #343a40; /* Culoare text */
+    line-height: 1.6;
 }
 
 header {
-    background: #007bff;
-    color: #fff;
+    background: #343a40; /* Culoare închisă pentru header */
+    color: #ffffff; /* Text alb */
     padding: 20px 0;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -23,62 +31,92 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #ffffff; /* Alb pentru linkuri */
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffc107; /* Culoare galbenă la hover */
 }
 
 .events-container {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 800px; /* Lățime maximă pentru container */
+    margin: 20px auto; /* Centrare pe pagină */
     padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #ffffff; /* Fundal alb pentru container */
+    border-radius: 8px; /* Colțuri rotunjite */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Umbră subtilă */
+}
+
+h2 {
+    text-align: center; /* Centrare titlu */
+    margin-bottom: 20px;
+    color: #343a40; /* Culoare text pentru titlu */
 }
 
 .event {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15 px;
+    background: #f1f1f1; /* Fundal deschis pentru evenimente */
+    border: 1px solid #dee2e6; /* Bordură deschisă */
+    border-radius: 8px; /* Colțuri rotunjite */
+    padding: 15px;
     margin: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /* Efecte de tranziție */
+}
+
+.event:hover {
+    transform: translateY(-5px); /* Ridicare la hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Umbră mai pronunțată la hover */
 }
 
 .event h3 {
-    color: #007bff;
+    color: #007bff; /* Culoare albastră pentru titlurile evenimentelor */
+    margin-bottom: 10px;
 }
 
 .event p {
-    margin: 5px 0;
+    margin: 5px 0; /* Margini pentru paragrafe */
 }
 
 .button {
     display: inline-block;
-    background: #28a745;
-    color: #fff;
+    background: #007bff; /* Culoare albastră pentru butoane */
+    color: #ffffff; /* Text alb */
     padding: 10px 15px;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
+    border-radius: 5px; /* Colțuri rotunjite */
+    transition: background 0.3s, transform 0.3s; /* Efecte de tranziție */
 }
 
 .button:hover {
-    background: #218838;
+    background: #0056b3; /* Culoare mai închisă la hover */
+    transform: scale(1.05); /* Mărire la hover */
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #343a40; /* Culoare închisă pentru footer */
+    color: #ffffff; /* Text alb */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
 }
 
 @media (max-width: 600px) {
     nav ul li {
-        display: block;
+        display: block; /* Meniu vertical pe mobil */
         margin: 10px 0;
     }
 
     .events-container {
-        padding: 10px;
+        padding: 10px; /* Padding mai mic pe mobil */
     }
 
     .button {
-        width: 100%;
+        width: 100%; /* Butoane pe întreaga lățime pe mobil */
         text-align: center;
     }
 }
