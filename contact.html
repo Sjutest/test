@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="st.css">
+    <link rel="stylesheet" href="style.css">
     <title>Contact</title>
 </head>
 <body>
@@ -12,27 +12,29 @@
         <nav>
             <ul>
                 <li><a href="index.html">Acasă</a></li>
-                <li><a href="about.html">Despre noi</a></li>
+                <li><a href="about.html">Despre Noi</a></li>
+                <li><a href="issues.html">Probleme</a></li>
+                <li><a href="events.html">Evenimente</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section>
-            <h2>Formular de contact</h2>
-            <form id="contactForm">
+            <h2>Contactează-ne</h2>
+            <form action="#" method="post">
                 <label for="name">Nume:</label>
-                <input type="text" id="name" required>
+                <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
-                <input type="email" id="email" required>
+                <input type="email" id="email" name="email" required>
                 <label for="message">Mesaj:</label>
-                <textarea id="message" required></textarea>
+                <textarea id="message" name="message" required></textarea>
                 <button type="submit">Trimite</button>
             </form>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Contabilitate de Management. Toate drepturile rezervate.</p>
+        <p>&copy; 2025 Campania Prezidențială. Toate drepturile rezervate.</p>
     </footer>
 </body>
 </html>
