@@ -8,7 +8,7 @@ body {
 header {
     background: #007bff;
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -27,25 +27,58 @@ nav ul li a {
     text-decoration: none;
 }
 
-.hero {
-    background: #e9ecef;
+.events-container {
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
-    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15 px;
+    margin: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.event h3 {
+    color: #007bff;
+}
+
+.event p {
+    margin: 5px 0;
 }
 
 .button {
+    display: inline-block;
     background: #28a745;
     color: #fff;
-    padding: 10px 20px;
+    padding: 10px 15px;
     text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
 
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #007bff;
-    color: #fff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+.button:hover {
+    background: #218838;
+}
+
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .events-container {
+        padding: 10px;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
 }
