@@ -80,7 +80,7 @@
       display: flex;
       justify-content: space-between;
       margin-top: 80px;
-      padding-bottom: 100px;
+      padding-bottom: 50px;
     }
 
     .signature div {
@@ -101,6 +101,11 @@
       padding-top: 15px;
       text-align: center;
       font-size: 10pt;
+    }
+
+    .no-break {
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     #detalii-asigurare {
@@ -225,10 +230,10 @@
       <input type="text" id="cod-icd" name="cod-icd">
 
       <label for="regim">Regim internare:</label>
-      <input type="text" id="regim" name="regim" placeholder="Continuă / De zi / Urgență">
+      <input type="text" id="regim" name="regim">
 
       <label for="tip-internare">Tip internare:</label>
-      <input type="text" id="tip-internare" name="tip-internare" placeholder="Programată / Urgență / Alte">
+      <input type="text" id="tip-internare" name="tip-internare">
 
       <label for="sectie">Secția propusă:</label>
       <input type="text" id="sectie" name="sectie">
@@ -245,22 +250,24 @@
       <label for="observatii">Observații suplimentare:</label>
       <textarea id="observatii" name="observatii"></textarea>
 
-      <div class="signature">
-        <div>
-          <p>Semnătura pacientului:</p>
+      <div class="no-break">
+        <div class="signature">
+          <div>
+            <p>Semnătura pacientului:</p>
+          </div>
+          <div>
+            <p>Semnătura și parafa medicului:</p>
+            <svg class="parafa-svg" width="80" height="80">
+              <circle cx="40" cy="40" r="38" stroke="red" stroke-width="2" fill="none" />
+            </svg>
+          </div>
         </div>
-        <div>
-          <p>Semnătura și parafa medicului:</p>
-          <svg class="parafa-svg" width="80" height="80">
-            <circle cx="40" cy="40" r="38" stroke="red" stroke-width="2" fill="none" />
-          </svg>
+
+        <div class="footer">
+          <p>Document completat conform protocoalelor medicale în vigoare. Tipărit automat la data completării.</p>
         </div>
       </div>
     </form>
-
-    <div class="footer">
-      <p>Document completat conform protocoalelor medicale în vigoare. Tipărit automat la data completării.</p>
-    </div>
   </div>
 </body>
 </html>
