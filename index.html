@@ -1,34 +1,266 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Campania Prezidențială - Emil Boc</title>
+  <meta charset="UTF-8">
+  <title>Fișă Medicală de Internare</title>
+  <style>
+    body {
+      font-family: "Courier New", Courier, monospace;
+      background: #f0f0f0;
+      padding: 30px;
+    }
+
+    .container {
+      width: 21cm;
+      min-height: 29.7cm;
+      margin: auto;
+      background: white;
+      border: 2px solid black;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
+      padding: 30px;
+      page-break-after: always;
+    }
+
+    .header {
+      text-align: center;
+      border-bottom: 2px dashed black;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 20pt;
+      color: #333;
+    }
+
+    .header h2 {
+      margin: 5px 0;
+      font-size: 14pt;
+      font-weight: normal;
+    }
+
+    .header p {
+      font-size: 10pt;
+      margin-top: 3px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 6px;
+      font-family: inherit;
+      font-size: 12pt;
+      margin-top: 2px;
+      border: 1px solid #999;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 80px;
+      resize: vertical;
+    }
+
+    .section-title {
+      margin-top: 25px;
+      font-size: 14pt;
+      border-bottom: 1px solid black;
+      padding-bottom: 5px;
+    }
+
+    .signature {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 80px;
+      padding-bottom: 100px;
+    }
+
+    .signature div {
+      width: 45%;
+      text-align: center;
+      height: 160px;
+      position: relative;
+    }
+
+    .parafa-svg {
+      display: block;
+      margin: 30px auto 0;
+    }
+
+    .footer {
+      margin-top: 30px;
+      border-top: 2px dashed black;
+      padding-top: 15px;
+      text-align: center;
+      font-size: 10pt;
+    }
+
+    #detalii-asigurare {
+      display: none;
+      margin-top: 10px;
+      border: 1px dashed #999;
+      padding: 10px;
+    }
+
+    .btn-print {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 14pt;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media print {
+      .btn-print {
+        display: none;
+      }
+
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .container {
+        box-shadow: none;
+        border: 1px solid black;
+      }
+
+      #detalii-asigurare {
+        display: block !important;
+      }
+    }
+  </style>
+  <script>
+    function verificaAsigurare() {
+      const val = document.getElementById("asigurat").value.trim().toUpperCase();
+      const detalii = document.getElementById("detalii-asigurare");
+      detalii.style.display = (val === "DA") ? "block" : "none";
+    }
+
+    function tipareste() {
+      window.print();
+    }
+  </script>
 </head>
 <body>
-    <header>
-        <h1>Campania Prezidențială - Emil Boc</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="about.html">Despre Noi</a></li>
-                <li><a href="issues.html">Probleme</a></li>
-                <li><a href="events.html">Evenimente</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <h2>Împreună pentru un viitor mai bun!</h2>
-            <p>Alătură-te campaniei noastre și fă-ți vocea auzită!</p>
-            <a href="don.html" class="button">Donează acum</a>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Campania Prezidențială. Toate drepturile rezervate.</p>
-    </footer>
-    <script src="script.js"></script>
+  <button class="btn-print" onclick="tipareste()">🖨️ Tipărește fișa</button>
+
+  <!-- Pagina 1 -->
+  <div class="container">
+    <div class="header">
+      <h1>SPITALUL CLINIC MUNICIPAL „SFÂNTUL IOAN”</h1>
+      <h2>Fișă Medicală de Internare</h2>
+      <p>Str. Libertății nr. 12, București · Tel: 021-123.4567</p>
+    </div>
+
+    <form autocomplete="off">
+      <label for="nume">Nume și prenume:</label>
+      <input type="text" id="nume" name="nume">
+
+      <label for="cnp">CNP:</label>
+      <input type="text" id="cnp" name="cnp">
+
+      <label for="data-nasterii">Data nașterii:</label>
+      <input type="date" id="data-nasterii" name="data-nasterii">
+
+      <label for="sex">Sex:</label>
+      <input type="text" id="sex" name="sex">
+
+      <label for="telefon">Telefon:</label>
+      <input type="text" id="telefon" name="telefon">
+
+      <label for="adresa">Adresă domiciliu:</label>
+      <input type="text" id="adresa" name="adresa">
+
+      <label for="asigurat">Este asigurat? (DA / NU):</label>
+      <input type="text" id="asigurat" name="asigurat" oninput="verificaAsigurare()">
+
+      <div id="detalii-asigurare">
+        <label for="tip-asigurare">Tip asigurare:</label>
+        <input type="text" id="tip-asigurare" name="tip-asigurare">
+
+        <label for="casa">Casa de asigurări:</label>
+        <input type="text" id="casa" name="casa">
+      </div>
+
+      <div class="section-title">Detalii Trimitere</div>
+
+      <label for="data-trimitere">Data biletului de trimitere:</label>
+      <input type="date" id="data-trimitere" name="data-trimitere">
+
+      <label for="medic-trimitator">Medic trimițător:</label>
+      <input type="text" id="medic-trimitator" name="medic-trimitator">
+
+      <label for="specialitate">Specialitate medic:</label>
+      <input type="text" id="specialitate" name="specialitate">
+
+      <label for="unitate-trimitere">Unitatea medicală care face trimiterea:</label>
+      <input type="text" id="unitate-trimitere" name="unitate-trimitere">
+    </form>
+  </div>
+
+  <!-- Pagina 2 -->
+  <div class="container">
+    <form autocomplete="off">
+      <div class="section-title">Date Medicale</div>
+
+      <label for="simptome">Simptome prezentate:</label>
+      <textarea id="simptome" name="simptome"></textarea>
+
+      <label for="diagnostic">Diagnostic provizoriu:</label>
+      <textarea id="diagnostic" name="diagnostic"></textarea>
+
+      <label for="cod-icd">Cod ICD (opțional):</label>
+      <input type="text" id="cod-icd" name="cod-icd">
+
+      <label for="regim">Regim internare:</label>
+      <input type="text" id="regim" name="regim" placeholder="Continuă / De zi / Urgență">
+
+      <label for="tip-internare">Tip internare:</label>
+      <input type="text" id="tip-internare" name="tip-internare" placeholder="Programată / Urgență / Alte">
+
+      <label for="sectie">Secția propusă:</label>
+      <input type="text" id="sectie" name="sectie">
+
+      <label for="alergii">Alergii cunoscute:</label>
+      <input type="text" id="alergii" name="alergii">
+
+      <label for="boli-cronice">Boli cronice:</label>
+      <input type="text" id="boli-cronice" name="boli-cronice">
+
+      <label for="tratament">Tratament actual:</label>
+      <textarea id="tratament" name="tratament"></textarea>
+
+      <label for="observatii">Observații suplimentare:</label>
+      <textarea id="observatii" name="observatii"></textarea>
+
+      <div class="signature">
+        <div>
+          <p>Semnătura pacientului:</p>
+        </div>
+        <div>
+          <p>Semnătura și parafa medicului:</p>
+          <svg class="parafa-svg" width="80" height="80">
+            <circle cx="40" cy="40" r="38" stroke="red" stroke-width="2" fill="none" />
+          </svg>
+        </div>
+      </div>
+    </form>
+
+    <div class="footer">
+      <p>Document completat conform protocoalelor medicale în vigoare. Tipărit automat la data completării.</p>
+    </div>
+  </div>
 </body>
 </html>
